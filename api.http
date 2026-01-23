@@ -1,0 +1,31 @@
+###
+GET http://localhost:3000/students
+
+###
+GET http://localhost:3000/students?search=ana
+
+
+###
+GET http://localhost:3000/students/6
+
+###
+POST http://localhost:3000/students
+Content-Type: application/json
+
+{
+  "name": "Lucía Gómez",
+  "email": "lucia@correo.com",
+  "age": 21
+}
+###
+PUT http://localhost:3000/students/6
+Content-Type: application/json
+
+{
+  "name": "Arguelles gitano",
+  "email": "gatoBizco@gmail.com",
+  "age": 50
+}
+
+###
+DELETE http://localhost:3000/students/5
