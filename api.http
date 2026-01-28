@@ -29,3 +29,25 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3000/students/5
+
+
+###
+
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{"email": "usuario.prueba@eple.com",
+ "password": "securePa123" ,
+
+  "name": "Usuario Pruea"
+}
+
+###
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{"email": "gatoBizco@gmail.com",
+ "password": "securePa123" ,
+
+  "name": "Usuario Pruea"
+}

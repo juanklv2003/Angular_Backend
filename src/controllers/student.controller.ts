@@ -36,9 +36,12 @@ export const createStudent = async (req: Request, res: Response) => {
 
     const id = await studentService.createStudent(name, email, age);
     res.status(201).json({ id });
-  } catch {
-    res.status(500).json({ message: 'Error creating student' });
+  } catch (error: any) {
+  if (error?.code === 'ER_DUP_ENTRY') {
+    return res.status(409).json({ message: 'Email already exists' });
   }
+  return res.status(500).json({ message: 'Error creating student' });
+}
 };
 //put 
 //body---> datos
