@@ -54,14 +54,20 @@ export const login = async (req: Request, res: Response) => {
 
 // Google OAuth callback
 export const googleCallback = (req: Request, res: Response) => {
-  const user = req.user as any;
-  
-  if (!user) {
-    return res.status(401).json({ message: 'Google authentication failed' });
-  }
+  try {
+    const user = req.user as any;
 
-  const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, { expiresIn: '1d' });
-  
-  // Redirigir al frontend con el token
-  res.redirect(`http://localhost:4200/auth/callback?token=${token}`);
+    if (!user) {
+      console.warn('Google callback without user');
+      return res.status(401).json({ message: 'Google authentication failed' });
+    }
+
+    const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, { expiresIn: '1d' });
+
+    // Redirigir al frontend con el token
+    res.redirect(`http://localhost:4200/auth/callback?token=${token}`);
+  } catch (error: any) {
+    console.error('Google callback error:', error);
+    res.status(500).json({ message: 'Google callback error' });
+  }
 };
