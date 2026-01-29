@@ -1,0 +1,55 @@
+########################
+# Node / TypeScript
+########################
+node_modules/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+
+########################
+# Environment
+########################
+.env
+.env.*
+!.env.example
+
+########################
+# Logs
+########################
+*.log
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+########################
+# Docker
+########################
+docker-data/
+db-data/
+mysql-data/
+mariadb-data/
+**/db-data/
+
+########################
+# Runtime
+########################
+*.pid
+*.sock
+
+########################
+# OS / Editors
+########################
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+########################
+# IDEs
+########################
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.iml
+.vercel
